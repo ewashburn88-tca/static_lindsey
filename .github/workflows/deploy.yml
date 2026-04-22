@@ -13,11 +13,14 @@ jobs:
     steps:
       - name: Write PEM key
         env:
-          DEPLOY_PEM: ${{ secrets.DEPLOY_PEM }}
+          DEPLOY_PEM_B64: ${{ secrets.DEPLOY_PEM_B64 }}
         run: |
           mkdir -p ~/.ssh
-          printf '%s\n' "${DEPLOY_PEM}" > ~/.ssh/ericcms.pem
+          printf '%s' "${DEPLOY_PEM_B64}" | base64 -d | tr -d '\r' > ~/.ssh/ericcms.pem
           chmod 600 ~/.ssh/ericcms.pem
+
+      - name: Validate PEM key
+        run: ssh-keygen -y -f ~/.ssh/ericcms.pem >/dev/null
 
       - name: Configure lindsey-ec2 host alias
         env:
