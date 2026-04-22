@@ -45,4 +45,19 @@ jobs:
         env:
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          ssh lindsey-ec2 "cd '${DEPLOY_PATH}' && git pull --ff-only origin main"
+          ssh lindsey-ec2 bash -s -- "${DEPLOY_PATH}" <<'EOF'
+          set -euo pipefail
+          deploy_path="$1"
+
+          case "$deploy_path" in
+            "~")
+              deploy_path="$HOME"
+              ;;
+            "~/"*)
+              deploy_path="$HOME/${deploy_path#~/}"
+              ;;
+          esac
+
+          cd "$deploy_path"
+          git pull --ff-only origin main
+          EOF
