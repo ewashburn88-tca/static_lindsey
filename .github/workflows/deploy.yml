@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Write PEM key
+        env:
+          DEPLOY_PEM: ${{ secrets.DEPLOY_PEM }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${DEPLOY_PEM}" > ~/.ssh/ericcms.pem
+          chmod 600 ~/.ssh/ericcms.pem
+
+      - name: Configure lindsey-ec2 host alias
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_PORT: ${{ secrets.DEPLOY_PORT }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          {
+            echo "Host lindsey-ec2"
+            echo "  HostName ${DEPLOY_HOST}"
+            echo "  User ${DEPLOY_USER}"
+            echo "  IdentityFile ~/.ssh/ericcms.pem"
+            if [ -n "${DEPLOY_PORT}" ]; then
+              echo "  Port ${DEPLOY_PORT}"
+            fi
+            echo "  StrictHostKeyChecking accept-new"
+          } >> ~/.ssh/config
+          chmod 600 ~/.ssh/config
+
+      - name: Deploy latest main
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          ssh lindsey-ec2 "cd '${DEPLOY_PATH}' && git pull --ff-only origin main"
