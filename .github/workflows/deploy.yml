@@ -49,6 +49,18 @@ jobs:
           set -euo pipefail
           deploy_path="$1"
 
+          deploy_path="${deploy_path%$'\r'}"
+          case "$deploy_path" in
+            \"*\")
+              deploy_path="${deploy_path#\"}"
+              deploy_path="${deploy_path%\"}"
+              ;;
+            \'*\')
+              deploy_path="${deploy_path#\'}"
+              deploy_path="${deploy_path%\'}"
+              ;;
+          esac
+
           case "$deploy_path" in
             "~")
               deploy_path="$HOME"
@@ -57,6 +69,11 @@ jobs:
               deploy_path="$HOME/${deploy_path#~/}"
               ;;
           esac
+
+          if [ ! -d "$deploy_path" ]; then
+            echo "DEPLOY_PATH does not exist on the remote host. Check the GitHub secret value." >&2
+            exit 1
+          fi
 
           cd "$deploy_path"
           git pull --ff-only origin main
