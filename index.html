@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lindsey Friedberg — Email Design</title>
+<meta name="description" content="Lindsey Friedberg designs emails that people actually open. Precision-engineered campaigns where avant-garde aesthetics meet conversion-driven strategy." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ─── Top Nav ───────────────────────────────────────── -->
+<header class="nav" role="banner">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo" aria-label="Lindsey Friedberg — Home">
+      <img src="assets/logo.png" alt="LF monogram" />
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#top" class="nav__link nav__link--active">Home</a>
+      <a href="#work" class="nav__link">Portfolio</a>
+      <a href="#cta" class="nav__link">Contact</a>
+    </nav>
+    <a href="#cta" class="btn btn--small">Hire Me</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ─── Hero ────────────────────────────────────────── -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__blob hero__blob--tr" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--bl" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <img class="hero__bg" src="assets/hero-bg.png" alt="" aria-hidden="true" />
+      <div class="hero__content">
+        <div class="eyebrow eyebrow--lg">
+          <span class="eyebrow__rule"></span>
+          <span>Lindsey Friedberg</span>
+        </div>
+        <h1 id="hero-heading" class="hero__title">
+          I design emails that<br />
+          <em>people actually open.</em>
+        </h1>
+        <div class="hero__actions">
+          <a href="#work" class="btn">View Portfolio</a>
+          <p class="hero__lede">
+            Precision-engineered campaigns where avant-garde aesthetics meet conversion-driven strategy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Featured Work (Bento) ───────────────────────── -->
+  <section class="work" id="work" aria-labelledby="work-heading">
+    <div class="work__inner">
+      <header class="work__header">
+        <div>
+          <h2 id="work-heading" class="section-title">Featured Work</h2>
+          <div class="eyebrow"><span>Selected Campaigns</span></div>
+        </div>
+        <a href="#work" class="work__arrow" aria-label="Browse all work">
+          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+            <path d="M4 32 L0 28 L22 6 L4 6 L4 1 L31 1 L31 28 L26 28 L26 10 L4 32 Z" fill="currentColor"/>
+          </svg>
+        </a>
+      </header>
+
+      <div class="bento">
+        <article class="card card--tall" style="--img: url('assets/cotes.png');">
+          <div class="card__img" aria-hidden="true"></div>
+          <div class="card__shade" aria-hidden="true"></div>
+          <div class="card__body">
+            <span class="tag tag--sage">Apparel</span>
+            <h3 class="card__title card__title--lg">COTES OF LONDON</h3>
+          </div>
+        </article>
+
+        <article class="card" style="--img: url('assets/maxpro.png');">
+          <div class="card__img" aria-hidden="true"></div>
+          <div class="card__shade" aria-hidden="true"></div>
+          <div class="card__body">
+            <span class="tag tag--moss">Fitness</span>
+            <h3 class="card__title">MAXPRO FITNESS</h3>
+          </div>
+        </article>
+
+        <article class="card" style="--img: url('assets/maxpro.png');">
+          <div class="card__img" aria-hidden="true"></div>
+          <div class="card__shade" aria-hidden="true"></div>
+          <div class="card__body">
+            <span class="tag tag--moss">Grooming</span>
+            <h3 class="card__title">JOHNNY SLICKS</h3>
+          </div>
+        </article>
+
+        <article class="card" style="--img: url('assets/maxpro.png');">
+          <div class="card__img" aria-hidden="true"></div>
+          <div class="card__shade" aria-hidden="true"></div>
+          <div class="card__body">
+            <span class="tag tag--moss">Home</span>
+            <h3 class="card__title">SALT BY SABRINA</h3>
+          </div>
+        </article>
+      </div>
+
+      <div class="work__cta">
+        <a href="#" class="btn btn--wide">View Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── The Art of The Email (slider) ───────────────── -->
+  <section class="art" aria-labelledby="art-heading">
+    <div class="art__inner">
+      <div class="art__col">
+        <span class="art__ghost" aria-hidden="true">ART</span>
+        <h2 id="art-heading" class="art__title">
+          <span class="art__title-row">The <strong>Art</strong> of</span>
+          <em class="art__title-em">The Email</em>
+        </h2>
+        <ol class="art__list">
+          <li>
+            <span class="art__num">01</span>
+            <div>
+              <h4>Kinetic Motion</h4>
+              <p>Static is dead. We use motion and dynamic blocks to create a scroll that feels alive.</p>
+            </div>
+          </li>
+          <li>
+            <span class="art__num">02</span>
+            <div>
+              <h4>Editorial Layouts</h4>
+              <p>Treating the inbox like a magazine spread. Bold typography, asymmetric grids, and zero-radius precision.</p>
+            </div>
+          </li>
+          <li>
+            <span class="art__num">03</span>
+            <div>
+              <h4>Conversion Core</h4>
+              <p>Beneath the skin lies a ruthless focus on open rates, CTR, and behavioral psychological triggers.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <div class="art__scroller" aria-label="Email design samples">
+        <div class="art__scroller-head">
+          <span class="eyebrow-text" data-label="Typography">Typography</span>
+        </div>
+        <div class="art__slide" role="group" aria-roledescription="slide" aria-label="1 of 3">
+          <img src="assets/art1.png" alt="Typography email sample" />
+          <img src="assets/art2.png" alt="Product email sample" />
+          <img src="assets/art3.png" alt="Reviews email sample" />
+        </div>
+        <div class="art__dots" role="tablist" aria-label="Choose slide">
+          <button role="tab" aria-selected="true" aria-label="Slide 1" data-i="0" class="is-active"></button>
+          <button role="tab" aria-selected="false" aria-label="Slide 2" data-i="1"></button>
+          <button role="tab" aria-selected="false" aria-label="Slide 3" data-i="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CTA ─────────────────────────────────────────── -->
+  <section class="cta" id="cta" aria-labelledby="cta-heading">
+    <div class="cta__bg" aria-hidden="true">
+      <span>OPEN RATE</span>
+      <span>CLICK THROUGH</span>
+      <span>CONVERSION</span>
+    </div>
+    <div class="cta__inner">
+      <h2 id="cta-heading" class="cta__title">
+        Let's build<br />
+        something <em>beautiful</em><br />
+        together.
+      </h2>
+      <a href="/cdn-cgi/l/email-protection#9ef6fbf2f2f1deeaf6fbfdf1fafbffeef1eaf6fbfdffece7b0fdf1f3" class="btn btn--dark">Start a project</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ─── Footer ────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="eyebrow"><span>Lindsey Friedberg</span></div>
+      <p class="footer__copy">© 2026 The Code Apothecary</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="#top">Home</a>
+      <a href="#work">Portfolio</a>
+      <a href="#cta">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="app.js" defer></script>
+</body>
+</html>
